@@ -89,11 +89,7 @@ public class VillagerAlerts extends JavaPlugin implements Listener {
     protected void sendMessageToPlayersWithinConfiguredArea(String message, Villager villager) {
         double radius = config.getDouble("radius");
         for (Player player : getServer().getOnlinePlayers()) {
-            player.getNearbyEntities(radius, radius, radius).forEach(entity -> {
-                if (entity.equals(villager)) {
                     player.sendMessage(ChatColor.getByChar(config.getString("message-colour-code")) + message);
-                }
-            });
         }
     }
 
